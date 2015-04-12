@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'calculations/loan_payment'
+
+  get 'calculations/descriptive_statistics'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
