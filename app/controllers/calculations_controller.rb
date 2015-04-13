@@ -46,7 +46,7 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @seconds = @ending - @starting
+    @seconds = "Replace this string with your answer"
     @minutes = "Replace this string with your answer"
     @hours = "Replace this string with your answer"
     @days = "Replace this string with your answer"
