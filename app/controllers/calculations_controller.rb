@@ -10,13 +10,13 @@ class CalculationsController < ApplicationController
     # The special word the user input is in the string @special_word.
     # ================================================================================
 
-    @word_count = "Replace this string with your answer"
+    @word_count = @text.split.count
 
-    @character_count_with_spaces = "Replace this string with your answer"
+    @character_count_with_spaces = @text.length
 
-    @character_count_without_spaces = "Replace this string with your answer"
+    @character_count_without_spaces = @text.gsub(" ", "").length
 
-    @occurrences = "Replace this string with your answer"
+    @occurrences = @text.split.count(@special_word)
   end
 
   def loan_payment
@@ -31,7 +31,10 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = "Replace this string with your answer"
+    rate = @apr / 100 / 12
+    nper = @years * 12
+
+    @monthly_payment = (rate * @principal)/(1 - (1 + rate)**-nper)
   end
 
   def time_between
@@ -46,13 +49,13 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @seconds = "Replace this string with your answer"
-    @minutes = "Replace this string with your answer"
-    @hours = "Replace this string with your answer"
-    @days = "Replace this string with your answer"
-    @weeks = "Replace this string with your answer"
-    @months = "Replace this string with your answer"
-    @years = "Replace this string with your answer"
+    @seconds = @ending - @starting
+    @minutes = @seconds / 1.minute
+    @hours = @seconds / 1.hour
+    @days = @seconds / 1.day
+    @weeks = @seconds / 1.week
+    @months = @seconds / 1.month
+    @years = @seconds / 1.year
   end
 
   def descriptive_statistics
@@ -63,24 +66,46 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @count = "Replace this string with your answer"
+    @sorted_numbers = @numbers.sort
 
-    @minimum = "Replace this string with your answer"
+    @count = @numbers.count
 
-    @maximum = "Replace this string with your answer"
+    @minimum = @numbers.min
 
-    @range = "Replace this string with your answer"
+    @maximum = @numbers.max
 
-    @median = "Replace this string with your answer"
+    @range = @maximum - @minimum
 
-    @sum = "Replace this string with your answer"
+    if @count.odd?
+      @median = @sorted_numbers[@count / 2]
+    else
+      @median = (@sorted_numbers[(@count / 2) - 1] + @sorted_numbers[(@count / 2)]) / 2
+    end
 
-    @mean = "Replace this string with your answer"
+    @sum = @numbers.sum
 
-    @variance = "Replace this string with your answer"
+    @mean = @sum / @count
 
-    @standard_deviation = "Replace this string with your answer"
+    squared_differences = []
 
-    @mode = "Replace this string with your answer"
+    @numbers.each do |num|
+      difference = num - @mean
+      squared_difference = difference ** 2
+      squared_differences.push(squared_difference)
+    end
+
+    @variance = squared_differences.sum / @count
+
+    @standard_deviation = Math.sqrt(@variance)
+
+    occurrences = Hash.new(0)
+
+    @numbers.each do |num|
+      occurrences[num] = occurrences[num] + 1
+    end
+
+    sorted_occurrences = occurrences.sort_by { |k, v| v }
+
+    @mode = sorted_occurrences.last.first
   end
 end
