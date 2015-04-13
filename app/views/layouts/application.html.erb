@@ -32,16 +32,39 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Omnicalc</a>
+        <a class="navbar-brand" href="/">
+          <i class="fa fa-calculator"></i>
+          Omnicalc
+        </a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav visible-xs visible-sm">
-          <li><a href="/word_count/new">Word Count</a></li>
-          <li><a href="/loan_payment/new">Loan Payment</a></li>
-          <li><a href="/time_between/new">Time Between</a></li>
-          <li><a href="/descriptive_statistics/new">Descriptive Statistics</a></li>
+          <li>
+            <a href="/word_count/new">
+              <i class="fa fa-book"></i>
+              <span>Word Count</span>
+            </a>
+          </li>
+          <li>
+            <a href="/loan_payment/new">
+              <i class="fa fa-money"></i>
+              <span>Loan Payment</span>
+            </a>
+          </li>
+          <li>
+            <a href="/time_between/new">
+              <i class="fa fa-clock-o"></i>
+              <span>Time Between</span>
+            </a>
+          </li>
+          <li>
+            <a href="/descriptive_statistics/new">
+              <i class="fa fa-bar-chart"></i>
+              <span>Descriptive Statistics</span>
+            </a>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -50,16 +73,24 @@
     <div class="row">
       <div class="col-md-3 hidden-xs hidden-sm">
         <div class="list-group">
-          <a href="/word_count/new" class="list-group-item">Word Count</a>
-          <a href="/loan_payment/new" class="list-group-item">Loan Payment</a>
-          <a href="/time_between/new" class="list-group-item">Time Between</a>
-          <a href="/descriptive_statistics/new" class="list-group-item">Descriptive Statistics</a>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+          <a href="/word_count/new" class="list-group-item">
+            <i class="fa fa-book"></i>
+            Word Count</a>
+            <a href="/loan_payment/new" class="list-group-item">
+              <i class="fa fa-money"></i>
+              Loan Payment</a>
+              <a href="/time_between/new" class="list-group-item">
+                <i class="fa fa-clock-o"></i>
+                Time Between</a>
+                <a href="/descriptive_statistics/new" class="list-group-item">
+                  <i class="fa fa-bar-chart"></i>
+                  Descriptive Statistics</a>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
