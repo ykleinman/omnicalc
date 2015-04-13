@@ -10,13 +10,16 @@ class CalculationsController < ApplicationController
     # The special word the user input is in the string @special_word.
     # ================================================================================
 
+
     @word_count = @text.split.count
 
     @character_count_with_spaces = @text.length
 
     @character_count_without_spaces = @text.gsub(" ", "").length
 
-    @occurrences = @text.split.count(@special_word)
+    normalized_text = @text.downcase.gsub(/[^a-z0-9\s]/i, '')
+
+    @occurrences = normalized_text.split.count(@special_word)
   end
 
   def loan_payment
