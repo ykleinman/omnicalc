@@ -30,6 +30,93 @@ RSpec.describe "Calculation", type: :feature do
     end
   end
 
+  describe "Word Count with mixed case" do
+    before do
+      visit '/word_count/new'
+      fill_in 'user_text', with: 'The first draft is just you telling yourself the story'
+      fill_in 'user_word', with: 'the'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted text", points: 5 do
+      expect(page).to have_content 'The first draft is just you telling yourself the story'
+    end
+
+    it "displays the word count", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the character count with spaces", points: 5 do
+      expect(page).to have_content 54
+    end
+
+    it "displays the character count without spaces", points: 5 do
+      expect(page).to have_content 45
+    end
+
+    it "displays count of the special word occurrences", points: 5 do
+      expect(page).to have_content 2
+    end
+  end
+
+  describe "Word Count with punctuation" do
+    before do
+      visit '/word_count/new'
+      fill_in 'user_text', with: 'The first draft is just you telling yourself the story.'
+      fill_in 'user_word', with: 'story'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted text", points: 5 do
+      expect(page).to have_content 'The first draft is just you telling yourself the story.'
+    end
+
+    it "displays the word count", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the character count with spaces", points: 5 do
+      expect(page).to have_content 55
+    end
+
+    it "displays the character count without spaces", points: 5 do
+      expect(page).to have_content 46
+    end
+
+    it "displays count of the special word occurrences", points: 5 do
+      expect(page).to have_content 1
+    end
+  end
+
+  describe "Word Count with newlines" do
+    before do
+      visit '/word_count/new'
+      fill_in 'user_text', with: "The first draft is just you\ntelling yourself the story.\n"
+      fill_in 'user_word', with: 'story'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted text", points: 5 do
+      expect(page).to have_content "The first draft is just you\ntelling yourself the story.\n"
+    end
+
+    it "displays the word count", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the character count with spaces", points: 5 do
+      expect(page).to have_content 58
+    end
+
+    it "displays the character count without spaces", points: 5 do
+      expect(page).to have_content 46
+    end
+
+    it "displays count of the special word occurrences", points: 5 do
+      expect(page).to have_content 1
+    end
+  end
+
   describe "Loan Payment simple" do
     before do
       visit '/loan_payment/new'
