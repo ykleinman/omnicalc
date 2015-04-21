@@ -1,6 +1,6 @@
 # Omnicalc
 
-The goal is this project is to get more practice with writing Ruby programs; but now, you are going to see your output in the browser rather than in Terminal.
+The goal of this project is to get more practice with writing Ruby programs; but now, you are going to see your output in the browser rather than in Terminal.
 
 In order to achieve this, we're going to write and execute our Ruby programs using a different technique; in the past, we used to create a file and name it whatever we wanted, write the code into the file, and then execute the code with `ruby whatever.rb` from Terminal.
 
