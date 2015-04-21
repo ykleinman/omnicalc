@@ -57,7 +57,6 @@ class CalculationsController < ApplicationController
     @hours = @seconds / 1.hour
     @days = @seconds / 1.day
     @weeks = @seconds / 1.week
-    @months = @seconds / 1.month
     @years = @seconds / 1.year
   end
 

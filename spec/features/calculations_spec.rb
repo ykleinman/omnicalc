@@ -181,10 +181,6 @@ RSpec.describe "Calculation", type: :feature do
       expect(page).to have_content '0.1430'
     end
 
-    it "displays the months between", points: 5 do
-      expect(page).to have_content '0.0333'
-    end
-
     it "displays the years between", points: 5 do
       expect(page).to have_content '0.0027'
     end
