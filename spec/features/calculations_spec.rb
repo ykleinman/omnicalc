@@ -4,25 +4,25 @@ RSpec.describe "Calculation", type: :feature do
   describe "Word Count simple" do
     before do
       visit '/word_count/new'
-      fill_in 'user_text', with: 'roses are red, violets are blue'
-      fill_in 'user_word', with: 'are'
+      fill_in 'user_text', with: 'the first draft is just you telling yourself the story'
+      fill_in 'user_word', with: 'the'
       click_button 'Submit'
     end
 
     it "displays the submitted text", points: 5 do
-      expect(page).to have_content 'roses are red, violets are blue'
+      expect(page).to have_content 'the first draft is just you telling yourself the story'
     end
 
     it "displays the word count", points: 5 do
-      expect(page).to have_content 6
+      expect(page).to have_content 10
     end
 
     it "displays the character count with spaces", points: 5 do
-      expect(page).to have_content 31
+      expect(page).to have_content 54
     end
 
     it "displays the character count without spaces", points: 5 do
-      expect(page).to have_content 26
+      expect(page).to have_content 45
     end
 
     it "displays count of the special word occurrences", points: 5 do
