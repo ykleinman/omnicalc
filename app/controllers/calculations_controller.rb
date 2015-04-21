@@ -11,15 +11,13 @@ class CalculationsController < ApplicationController
     # ================================================================================
 
 
-    @word_count = @text.split.count
+    @character_count_with_spaces = "Replace this string with your answer."
 
-    @character_count_with_spaces = @text.length
+    @character_count_without_spaces = "Replace this string with your answer."
 
-    @character_count_without_spaces = @text.gsub(/\s+/, "").length
+    @word_count = "Replace this string with your answer."
 
-    normalized_text = @text.downcase.gsub(/[^a-z0-9\s]/i, '')
-
-    @occurrences = normalized_text.split.count(@special_word)
+    @occurrences = "Replace this string with your answer."
   end
 
   def loan_payment
@@ -34,10 +32,7 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    rate = @apr / 100 / 12
-    nper = @years * 12
-
-    @monthly_payment = (rate * @principal)/(1 - (1 + rate)**-nper)
+    @monthly_payment = "Replace this string with your answer."
   end
 
   def time_between
@@ -48,16 +43,17 @@ class CalculationsController < ApplicationController
     # Your code goes below.
     # The start time is in the Time @starting.
     # The end time is in the Time @ending.
-    # The number of years the user input is in the integer @years.
-    # The principal value the user input is in the decimal @principal.
+    # Note: Ruby stores Times in terms of seconds since Jan 1, 1970.
+    #   So if you subtract one time from another, you will get an integer
+    #   number of seconds as a result.
     # ================================================================================
 
-    @seconds = @ending - @starting
-    @minutes = @seconds / 1.minute
-    @hours = @seconds / 1.hour
-    @days = @seconds / 1.day
-    @weeks = @seconds / 1.week
-    @years = @seconds / 1.year
+    @seconds = "Replace this string with your answer."
+    @minutes = "Replace this string with your answer."
+    @hours = "Replace this string with your answer."
+    @days = "Replace this string with your answer."
+    @weeks = "Replace this string with your answer."
+    @years = "Replace this string with your answer."
   end
 
   def descriptive_statistics
@@ -68,46 +64,26 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @sorted_numbers = @numbers.sort
+    @sorted_numbers = "Replace this string with your answer."
 
-    @count = @numbers.count
+    @count = "Replace this string with your answer."
 
-    @minimum = @numbers.min
+    @minimum = "Replace this string with your answer."
 
-    @maximum = @numbers.max
+    @maximum = "Replace this string with your answer."
 
-    @range = @maximum - @minimum
+    @range = "Replace this string with your answer."
 
-    if @count.odd?
-      @median = @sorted_numbers[@count / 2]
-    else
-      @median = (@sorted_numbers[(@count / 2) - 1] + @sorted_numbers[(@count / 2)]) / 2
-    end
+    @median = "Replace this string with your answer."
 
-    @sum = @numbers.sum
+    @sum = "Replace this string with your answer."
 
-    @mean = @sum / @count
+    @mean = "Replace this string with your answer."
 
-    squared_differences = []
+    @variance = "Replace this string with your answer."
 
-    @numbers.each do |num|
-      difference = num - @mean
-      squared_difference = difference ** 2
-      squared_differences.push(squared_difference)
-    end
+    @standard_deviation = "Replace this string with your answer."
 
-    @variance = squared_differences.sum / @count
-
-    @standard_deviation = Math.sqrt(@variance)
-
-    occurrences = Hash.new(0)
-
-    @numbers.each do |num|
-      occurrences[num] = occurrences[num] + 1
-    end
-
-    sorted_occurrences = occurrences.sort_by { |k, v| v }
-
-    @mode = sorted_occurrences.last.first
+    @mode = "Replace this string with your answer."
   end
 end
