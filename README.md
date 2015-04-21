@@ -44,17 +44,18 @@ It is a collection of calculators that do various things; count the number of wo
           # ================================================================================
 
 
-          @word_count = "Replace this string with your answer."
-
-          @character_count_with_spaces = "Replace this string with your answer."
+          @character_count_with_spaces = @text.length
 
           @character_count_without_spaces = "Replace this string with your answer."
+
+          @word_count = "Replace this string with your answer."
 
           @occurrences = "Replace this string with your answer."
         end
 
  1. The code between the `def word_count` and `end` is the program that gets executed. I have already written some code that retrieves the inputs from the form and places them into variables for you to use, `@text` and `@special_word`.
- 1. Your job is to write code below the comments and, ultimately, store the correct values in the variables I created at the bottom of the method: `@word_count`, `@character_count_with_spaces`, `@character_count_without_spaces`, and `@occurrences`. Don't change the names of these variables; if you do, your results won't appear in the browser in the end.
+ 1. Your job is to write code below the comments and, ultimately, store the correct values in the variables I created at the bottom of the method. For example, I have solved the first one for you by calling `.length` on the user's input, `@text`, and assigning the result to `@character_count_with_spaces`.
+ 1. You have to figure out how to calculate the correct value for the rest: `@character_count_without_spaces`, `@word_count`, and `@occurrences`. Don't change the names of these variables; if you do, your results won't appear in the browser in the end.
  1. You can write as much or as little code as it takes to produce the correct answer; create intermediate variables if you want, or do anything else that you learned about from Pine. It's all just the same Ruby as before.
  1. Similarly, next work on `def loan_payment` and check your output by submitting the form located at http://localhost:3000/loan_payment/new
  1. Some tasks are easier, some are much harder. For example, in the Descriptive Statistics calculator, finding the mode (the number that occurs most frequently in a list of numbers) is surprisingly hard. Do your best but don't get discouraged.
