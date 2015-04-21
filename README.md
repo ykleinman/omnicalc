@@ -28,7 +28,8 @@ It is a collection of calculators that do various things; count the number of wo
         rails server
 
  1. In Chrome, navigate to http://localhost:3000
- 1. If all went well, you should see the New Word Count form. Type in some text and submit the form. 
+ 1. If all went well, you should see the New Word Count form. **If not, let me know right away.**
+ 1. Type in some text and submit the form. 
  1. On the results page, you will currently see just a bunch of placeholders.
  1. In Sublime, find the `/app/controllers/calculations_controller.rb` file.
  1. Locate the part of the file that looks like this:
