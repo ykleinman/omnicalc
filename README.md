@@ -47,7 +47,7 @@ It is a collection of calculators that do various things; count the number of wo
           # ================================================================================
 
 
-          @character_count_with_spaces = @text.length
+          @character_count_with_spaces = "Replace this string with your answer."
 
           @character_count_without_spaces = "Replace this string with your answer."
 
@@ -57,7 +57,10 @@ It is a collection of calculators that do various things; count the number of wo
         end
 
  1. The code between the `def word_count` and `end` is the program that gets executed. I have already written some code that retrieves the inputs from the form and places them into variables for you to use, `@text` and `@special_word`.
- 1. Your job is to write code below the comments and, ultimately, store the correct values in the variables I created at the bottom of the method. For example, I have solved the first one for you by calling `.length` on the user's input, `@text`, and assigning the result to `@character_count_with_spaces`.
+ 1. Your job is to write code below the comments and, ultimately, store the correct values in the variables I created at the bottom of the method. For example, to solve the first part, call `.length` on the user's input, `@text`, and assign the result to `@character_count_with_spaces`.
+
+        @character_count_with_spaces = @text.length
+
  1. You have to figure out how to calculate the correct value for the rest: `@character_count_without_spaces`, `@word_count`, and `@occurrences`. Don't change the names of these variables; if you do, your results won't appear in the browser in the end.
  1. Refresh the results page in your browser to re-run your code and see new output.
  1. You can write as much or as little code as it takes to produce the correct answer; create intermediate variables if you want, or do anything else that you learned about from Pine (except we don't use `puts` and `gets` for output and input anymore). It's all just the same Ruby as before.
