@@ -189,20 +189,20 @@ RSpec.describe "Calculation", type: :feature do
   describe "Descriptive Statistics simple" do
     before do
       visit '/descriptive_statistics/new'
-      fill_in 'list_of_numbers', with: '1 23 23 1 82 38.6'
+      fill_in 'list_of_numbers', with: '10 1 2 3 4 5 6 7 8 8 9'
       click_button 'Submit'
     end
 
     it "displays the submitted numbers as an array", points: 5 do
-      expect(page).to have_content [1.0, 23.0, 23.0, 1.0, 82.0, 38.6]
+      expect(page).to have_content [10.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0]
     end
 
     it "displays the numbers as a sorted array", points: 5 do
-      expect(page).to have_content [1.0, 1.0, 23.0, 23.0, 38.6, 82.0]
+      expect(page).to have_content [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0, 10.0]
     end
 
     it "displays the count of numbers", points: 5 do
-      expect(page).to have_content 6
+      expect(page).to have_content 11
     end
 
     it "displays the lowest number", points: 5 do
@@ -210,35 +210,91 @@ RSpec.describe "Calculation", type: :feature do
     end
 
     it "displays the highest number", points: 5 do
-      expect(page).to have_content 82.0
+      expect(page).to have_content 10.0
     end
 
     it "displays the range between the lowest and highest numbers", points: 5 do
-      expect(page).to have_content 81.0
+      expect(page).to have_content 9.0
     end
 
     it "displays the median of the numbers", points: 5 do
-      expect(page).to have_content 23.0
+      expect(page).to have_content 6.0
     end
 
     it "displays the sum of the numbers", points: 5 do
-      expect(page).to have_content 168.6
+      expect(page).to have_content 63.0
     end
 
     it "displays the mean of the numbers", points: 5 do
-      expect(page).to have_content 28.09
+      expect(page).to have_content 5.72
     end
 
     it "displays the variance of the numbers", points: 5 do
-      expect(page).to have_content 756.05
+      expect(page).to have_content 8.01
     end
 
     it "displays the standard deviation of the numbers", points: 5 do
-      expect(page).to have_content 27.49
+      expect(page).to have_content 2.83
     end
 
     it "displays the mode of the numbers", points: 5 do
+      expect(page).to have_content 8.0
+    end
+  end
+
+  describe "Descriptive Statistics with even number of elements" do
+    before do
+      visit '/descriptive_statistics/new'
+      fill_in 'list_of_numbers', with: '10 1 2 3 4 5 6 7 8 8'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted numbers as an array", points: 5 do
+      expect(page).to have_content [10.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0]
+    end
+
+    it "displays the numbers as a sorted array", points: 5 do
+      expect(page).to have_content [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 10.0]
+    end
+
+    it "displays the count of numbers", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the lowest number", points: 5 do
       expect(page).to have_content 1.0
+    end
+
+    it "displays the highest number", points: 5 do
+      expect(page).to have_content 10.0
+    end
+
+    it "displays the range between the lowest and highest numbers", points: 5 do
+      expect(page).to have_content 9.0
+    end
+
+    it "displays the median of the numbers", points: 5 do
+      expect(page).to have_content 5.5
+    end
+
+    it "displays the sum of the numbers", points: 5 do
+      expect(page).to have_content 54.0
+    end
+
+    it "displays the mean of the numbers", points: 5 do
+      expect(page).to have_content 5.4
+    end
+
+    it "displays the variance of the numbers", points: 5 do
+      expect(page).to have_content 7.64
+    end
+
+    it "displays the standard deviation of the numbers", points: 5 do
+      expect(page).to have_content 2.76
+    end
+
+    it "displays the mode of the numbers", points: 5 do
+      expect(page).to have_content 8.0
     end
   end
 end
