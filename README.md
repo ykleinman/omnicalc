@@ -63,5 +63,5 @@ It is a collection of calculators that do various things; count the number of wo
  1. You can write as much or as little code as it takes to produce the correct answer; create intermediate variables if you want, or do anything else that you learned about from Pine (except we don't use `puts` and `gets` for output and input anymore). It's all just the same Ruby as before.
  1. Similarly, next work on `def loan_payment` and check your output by submitting the form located at http://localhost:3000/loan_payment/new
  1. Some tasks are easier, some are much harder. For example, in the Descriptive Statistics calculator, finding the mode (the number that occurs most frequently in a list of numbers) is surprisingly hard. Do your best, but don't get discouraged if you can't quite solve it.
- 1. In the `essential_ruby` repository from class, there are some comments in `8_return_values.rb` and `challenge_1.rb` that may be helpful for finding some of the formulae you'll need.
+ 1. In the [essential_ruby](../essential_ruby) repository from class, there are some comments in `8_return_values.rb` and `challenge_1.rb` that may be helpful for finding some of the formulae you'll need.
  1. Ask lots of questions!
