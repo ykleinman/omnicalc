@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Calculations", type: :feature do
-  describe "GET /word_count/results" do
+RSpec.describe "Calculation", type: :feature do
+  describe "Word Count simple" do
     before do
       visit '/word_count/new'
       fill_in 'user_text', with: 'roses are red, violets are blue'
@@ -30,7 +30,7 @@ RSpec.describe "Calculations", type: :feature do
     end
   end
 
-  describe "GET /loan_payment/results" do
+  describe "Loan Payment simple" do
     before do
       visit '/loan_payment/new'
       fill_in 'annual_percentage_rate', with: 4.5
@@ -56,7 +56,7 @@ RSpec.describe "Calculations", type: :feature do
     end
   end
 
-  describe "GET /time_between/results" do
+  describe "Time Between simple" do
     before do
       visit '/time_between/new'
       fill_in 'starting_time', with: '04/16/2015 4:00 PM'
@@ -103,7 +103,7 @@ RSpec.describe "Calculations", type: :feature do
     end
   end
 
-  describe "GET /descriptive_statistics/results" do
+  describe "Descriptive Statistics simple" do
     before do
       visit '/descriptive_statistics/new'
       fill_in 'list_of_numbers', with: '1 23 23 1 82 38.6'
