@@ -1,28 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe "Calculations", type: :feature do
-  describe "GET /word_count/results" do
+RSpec.describe "Calculation", type: :feature do
+  describe "Word Count simple" do
     before do
       visit '/word_count/new'
-      fill_in 'user_text', with: 'roses are red, violets are blue'
-      fill_in 'user_word', with: 'are'
+      fill_in 'user_text', with: 'the first draft is just you telling yourself the story'
+      fill_in 'user_word', with: 'the'
       click_button 'Submit'
     end
 
     it "displays the submitted text", points: 5 do
-      expect(page).to have_content 'roses are red, violets are blue'
+      expect(page).to have_content 'the first draft is just you telling yourself the story'
     end
 
     it "displays the word count", points: 5 do
-      expect(page).to have_content 6
+      expect(page).to have_content 10
     end
 
     it "displays the character count with spaces", points: 5 do
-      expect(page).to have_content 31
+      expect(page).to have_content 54
     end
 
     it "displays the character count without spaces", points: 5 do
-      expect(page).to have_content 26
+      expect(page).to have_content 45
     end
 
     it "displays count of the special word occurrences", points: 5 do
@@ -30,7 +30,94 @@ RSpec.describe "Calculations", type: :feature do
     end
   end
 
-  describe "GET /loan_payment/results" do
+  describe "Word Count with mixed case" do
+    before do
+      visit '/word_count/new'
+      fill_in 'user_text', with: 'The first draft is just you telling yourself the story'
+      fill_in 'user_word', with: 'the'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted text", points: 5 do
+      expect(page).to have_content 'The first draft is just you telling yourself the story'
+    end
+
+    it "displays the word count", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the character count with spaces", points: 5 do
+      expect(page).to have_content 54
+    end
+
+    it "displays the character count without spaces", points: 5 do
+      expect(page).to have_content 45
+    end
+
+    it "displays count of the special word occurrences", points: 5 do
+      expect(page).to have_content 2
+    end
+  end
+
+  describe "Word Count with punctuation" do
+    before do
+      visit '/word_count/new'
+      fill_in 'user_text', with: 'The first draft is just you telling yourself the story.'
+      fill_in 'user_word', with: 'story'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted text", points: 5 do
+      expect(page).to have_content 'The first draft is just you telling yourself the story.'
+    end
+
+    it "displays the word count", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the character count with spaces", points: 5 do
+      expect(page).to have_content 55
+    end
+
+    it "displays the character count without spaces", points: 5 do
+      expect(page).to have_content 46
+    end
+
+    it "displays count of the special word occurrences", points: 5 do
+      expect(page).to have_content 1
+    end
+  end
+
+  describe "Word Count with newlines" do
+    before do
+      visit '/word_count/new'
+      fill_in 'user_text', with: "The first draft is just you\ntelling yourself the story.\n"
+      fill_in 'user_word', with: 'story'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted text", points: 5 do
+      expect(page).to have_content "The first draft is just you\ntelling yourself the story.\n"
+    end
+
+    it "displays the word count", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the character count with spaces", points: 5 do
+      expect(page).to have_content 58
+    end
+
+    it "displays the character count without spaces", points: 5 do
+      expect(page).to have_content 46
+    end
+
+    it "displays count of the special word occurrences", points: 5 do
+      expect(page).to have_content 1
+    end
+  end
+
+  describe "Loan Payment simple" do
     before do
       visit '/loan_payment/new'
       fill_in 'annual_percentage_rate', with: 4.5
@@ -56,7 +143,7 @@ RSpec.describe "Calculations", type: :feature do
     end
   end
 
-  describe "GET /time_between/results" do
+  describe "Time Between simple" do
     before do
       visit '/time_between/new'
       fill_in 'starting_time', with: '04/16/2015 4:00 PM'
@@ -94,32 +181,28 @@ RSpec.describe "Calculations", type: :feature do
       expect(page).to have_content '0.1430'
     end
 
-    it "displays the months between", points: 5 do
-      expect(page).to have_content '0.0333'
-    end
-
     it "displays the years between", points: 5 do
       expect(page).to have_content '0.0027'
     end
   end
 
-  describe "GET /descriptive_statistics/results" do
+  describe "Descriptive Statistics simple" do
     before do
       visit '/descriptive_statistics/new'
-      fill_in 'list_of_numbers', with: '1 23 23 1 82 38.6'
+      fill_in 'list_of_numbers', with: '10 1 2 3 4 5 6 7 8 8 9'
       click_button 'Submit'
     end
 
     it "displays the submitted numbers as an array", points: 5 do
-      expect(page).to have_content [1.0, 23.0, 23.0, 1.0, 82.0, 38.6]
+      expect(page).to have_content [10.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0]
     end
 
     it "displays the numbers as a sorted array", points: 5 do
-      expect(page).to have_content [1.0, 1.0, 23.0, 23.0, 38.6, 82.0]
+      expect(page).to have_content [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0, 10.0]
     end
 
     it "displays the count of numbers", points: 5 do
-      expect(page).to have_content 6
+      expect(page).to have_content 11
     end
 
     it "displays the lowest number", points: 5 do
@@ -127,35 +210,91 @@ RSpec.describe "Calculations", type: :feature do
     end
 
     it "displays the highest number", points: 5 do
-      expect(page).to have_content 82.0
+      expect(page).to have_content 10.0
     end
 
     it "displays the range between the lowest and highest numbers", points: 5 do
-      expect(page).to have_content 81.0
+      expect(page).to have_content 9.0
     end
 
     it "displays the median of the numbers", points: 5 do
-      expect(page).to have_content 23.0
+      expect(page).to have_content 6.0
     end
 
     it "displays the sum of the numbers", points: 5 do
-      expect(page).to have_content 168.6
+      expect(page).to have_content 63.0
     end
 
     it "displays the mean of the numbers", points: 5 do
-      expect(page).to have_content 28.09
+      expect(page).to have_content 5.72
     end
 
     it "displays the variance of the numbers", points: 5 do
-      expect(page).to have_content 756.05
+      expect(page).to have_content 8.01
     end
 
     it "displays the standard deviation of the numbers", points: 5 do
-      expect(page).to have_content 27.49
+      expect(page).to have_content 2.83
     end
 
     it "displays the mode of the numbers", points: 5 do
+      expect(page).to have_content 8.0
+    end
+  end
+
+  describe "Descriptive Statistics with even number of elements" do
+    before do
+      visit '/descriptive_statistics/new'
+      fill_in 'list_of_numbers', with: '10 1 2 3 4 5 6 7 8 8'
+      click_button 'Submit'
+    end
+
+    it "displays the submitted numbers as an array", points: 5 do
+      expect(page).to have_content [10.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0]
+    end
+
+    it "displays the numbers as a sorted array", points: 5 do
+      expect(page).to have_content [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 10.0]
+    end
+
+    it "displays the count of numbers", points: 5 do
+      expect(page).to have_content 10
+    end
+
+    it "displays the lowest number", points: 5 do
       expect(page).to have_content 1.0
+    end
+
+    it "displays the highest number", points: 5 do
+      expect(page).to have_content 10.0
+    end
+
+    it "displays the range between the lowest and highest numbers", points: 5 do
+      expect(page).to have_content 9.0
+    end
+
+    it "displays the median of the numbers", points: 5 do
+      expect(page).to have_content 5.5
+    end
+
+    it "displays the sum of the numbers", points: 5 do
+      expect(page).to have_content 54.0
+    end
+
+    it "displays the mean of the numbers", points: 5 do
+      expect(page).to have_content 5.4
+    end
+
+    it "displays the variance of the numbers", points: 5 do
+      expect(page).to have_content 7.64
+    end
+
+    it "displays the standard deviation of the numbers", points: 5 do
+      expect(page).to have_content 2.76
+    end
+
+    it "displays the mode of the numbers", points: 5 do
+      expect(page).to have_content 8.0
     end
   end
 end
