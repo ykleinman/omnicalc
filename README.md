@@ -16,6 +16,8 @@ It is a collection of calculators that do various things; count the number of wo
 
 ## Setup
 
+[Here's a brief Getting Started video.](http://appdev-summer15.github.io/videos/omnicalc_ruby.html) **Read the instructions below carefully also.**
+
  1. **First fork** this repo, and *then* clone **your fork** to your computer.
  1. Navigate to the folder you downloaded in Terminal.
  1. Open up the entire folder in Sublime.
