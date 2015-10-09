@@ -18,6 +18,12 @@ class CalculationsController < ApplicationController
     @word_count = "Replace this string with your answer."
 
     @occurrences = "Replace this string with your answer."
+
+    # ================================================================================
+    # Your code goes above.
+    # ================================================================================
+
+    render("word_count.html.erb")
   end
 
   def loan_payment
@@ -33,6 +39,12 @@ class CalculationsController < ApplicationController
     # ================================================================================
 
     @monthly_payment = "Replace this string with your answer."
+
+    # ================================================================================
+    # Your code goes above.
+    # ================================================================================
+
+    render("loan_payment.html.erb")
   end
 
   def time_between
@@ -54,6 +66,12 @@ class CalculationsController < ApplicationController
     @days = "Replace this string with your answer."
     @weeks = "Replace this string with your answer."
     @years = "Replace this string with your answer."
+
+    # ================================================================================
+    # Your code goes above.
+    # ================================================================================
+
+    render("time_between.html.erb")
   end
 
   def descriptive_statistics
@@ -85,5 +103,11 @@ class CalculationsController < ApplicationController
     @standard_deviation = "Replace this string with your answer."
 
     @mode = "Replace this string with your answer."
+
+    # ================================================================================
+    # Your code goes above.
+    # ================================================================================
+
+    render("descriptive_statistics.html.erb")
   end
 end
