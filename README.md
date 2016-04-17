@@ -16,8 +16,6 @@ It is a collection of calculators that do various things; count the number of wo
 
 ## Setup
 
-You'll find a brief Getting Started video in Canvas under Pages > Additional Videos. **Read the instructions below carefully also.**
-
  1. Clone this repo, and **then create a branch for your work**.
  1. Navigate to the folder you downloaded in Terminal.
  1. Open up the entire folder in Atom.
