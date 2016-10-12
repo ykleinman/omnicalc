@@ -16,7 +16,8 @@ It is a collection of calculators that do various things; count the number of wo
 
 ## Setup
 
- 1. Clone this repo, and **then create a branch for your work**.
+ 1. First, **FORK THIS REPO TO YOUR OWN ACCOUNT**.
+ 1. Then clone **your fork** (Open in Desktop) to download it to your computer.
  1. Navigate to the folder you downloaded in Terminal.
  1. Open up the entire folder in Atom.
  1. In Terminal,
