@@ -13,11 +13,11 @@ class CalculationsController < ApplicationController
 
     @character_count_with_spaces = @text.length
 
-    @character_count_without_spaces = "Replace this string with your answer."
+    @character_count_without_spaces = @text.split.reject { |w| w =~ /(\W|_|\d)/ }.count
 
-    @word_count = "Replace this string with your answer."
+    @word_count = @text.gsub(/[^-a-zA-Z]/, ' ').split.size
 
-    @occurrences = "Replace this string with your answer."
+    @occurrences = 
 
     # ================================================================================
     # Your code goes above.
