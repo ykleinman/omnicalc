@@ -13,11 +13,12 @@ class CalculationsController < ApplicationController
 
     @character_count_with_spaces = @text.length
 
-    @character_count_without_spaces = @text.split.reject { |w| w =~ /(\W|_|\d)/ }.count
+    @character_count_without_spaces = @text.gsub(" ", "").length 
+    # @text.split.reject { |w| w =~ /(\W|_|\d)/ }.count
 
     @word_count = @text.gsub(/[^-a-zA-Z]/, ' ').split.size
 
-    @occurrences = 
+    @occurrences =
 
     # ================================================================================
     # Your code goes above.
